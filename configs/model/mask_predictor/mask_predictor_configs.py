@@ -28,9 +28,9 @@ class EntmaxConfig(BaseConfig):
 class BernoulliCoefSchedule(BaseConfig):
     schedule: str = "linear"
     initial_value: float = 0.0
-    final_value: float = 0.01
-    start_epoch: int = 10
-    final_epoch: int = 30
+    final_value: float = 0.01 # i can mess around with this
+    start_epoch: int = 10 # When without mask drops off
+    final_epoch: int = 30 # 90% - 100% of total epochs
 
 
 @dataclass
@@ -55,7 +55,7 @@ class ThresholdConfig(BaseConfig):
 
 @dataclass
 class SparsificationConfig(BaseConfig):
-    type: str = "bernoulli"  # "topk", "entmax", "threshold", "bernoulli"
+    type: str = "bernoulli"  # "topk", "entmax", "threshold", "bernoulli"   Vary and see which one does better (between bernoulli and entmax)
     use_mask_label_final_epoch: int = 20
     entmax_config: EntmaxConfig = field(default_factory=EntmaxConfig)
     bernoulli_config: BernoulliConfig = field(default_factory=BernoulliConfig)
@@ -64,17 +64,17 @@ class SparsificationConfig(BaseConfig):
 
 @dataclass
 class AttnConfig(BaseConfig):
-    embed_dim: int = 64
-    num_heads: int = 4
+    embed_dim: int = 256
+    num_heads: int = 8
     dropout: float = 0.0
-    mlp_hidden_dim: int = 256
+    mlp_hidden_dim: int = 1024
 
 
 @dataclass
 class CompetitionConfig(BaseConfig):
     iters: int = 2
     use_rnn: bool = False
-    update_key: bool = False
+    update_key: bool = False # Vary and see which one does better
 
 
 @dataclass

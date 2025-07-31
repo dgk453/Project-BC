@@ -16,10 +16,10 @@ class default_context_encoder_config(BaseConfig):
     NUM_LAYER_IN_MLP_MAP: int = 5
     NUM_LAYER_IN_PRE_MLP_MAP: int = 3
 
-    D_MODEL: int = 128
-    NUM_ATTN_LAYERS: int = 6
+    D_MODEL: int = 256
+    NUM_ATTN_LAYERS: int = 3
     NUM_ATTN_HEAD: int = 8
-    DROPOUT_OF_ATTN: float = 0.1
+    DROPOUT_OF_ATTN: float = 0.1 
 
     USE_LOCAL_ATTN: bool = True
     MASK_PREDICTOR = None

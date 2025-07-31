@@ -16,7 +16,7 @@ class default_motion_decoder_config(BaseConfig):
     INTENTION_POINTS_FILE: str = "data/waymo/cluster_64_center_dict.pkl"
 
     D_MODEL: int = 256
-    NUM_DECODER_LAYERS: int = 6
+    NUM_DECODER_LAYERS: int = 3
     NUM_ATTN_HEAD: int = 8
     MAP_D_MODEL: int = 256
     DROPOUT_OF_ATTN: float = 0.1
@@ -31,7 +31,6 @@ class default_motion_decoder_config(BaseConfig):
     })
 
     NMS_DIST_THRESH: float = 2.5
-
     mask_predictor_all: mask_predictor_config = field(default_factory=mask_predictor_config)
 
     def __post_init__(self):

@@ -109,7 +109,7 @@ class WaymoDataset(DatasetTemplate):
 
         """
         self.CMTR = not (info is None)
-        sdc_track_index = info['sdc_track_index']
+        sdc_track_index = 0
         current_time_index = info['current_time_index']
         timestamps = np.array(info['timestamps_seconds'][:current_time_index + 1], dtype=np.float32)
 
